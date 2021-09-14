@@ -2,9 +2,14 @@
 {%block content%}
 
 
-<h3>&#x2614; 비가 올 때 좋은 노래 </h3>
+<h3>&#x2614;</h3>
 <br><br><br><br><br><br>
-<p>이소라 </p>
+
+{% for song in songs %}
+<h3>{{song.songtitle}}</h3>
+
+{{song.lyrics}}
+{%endfor%}
 
 <h3></h3>
 {% endblock %}
