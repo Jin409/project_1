@@ -3,13 +3,15 @@
 
 
 <h3>&#x2614;</h3>
-<br><br><br><br><br><br>
+<br><br><br>
 
 {% for song in songs %}
-<h3>{{song.songtitle}}</h3>
+<h5>{{song.songtitle}} - {{song.songwriter}}</h5>
 
-{{song.lyrics}}
+<p style="font-size:13px;">{{song.summary}}<a href="{% url 'music:detail' song.id %}">...</a></p>
 {%endfor%}
 
 <h3></h3>
 {% endblock %}
+
+{% comment %} {% url 'song:detail' song.id%} {% endcomment %}
