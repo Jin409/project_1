@@ -8,7 +8,6 @@ def home(request):
 def rain(request):
     songs = Song.objects.filter(recommendation="rain")
     return render(request,'rain.html',{'songs':songs})
-   
 
 def detail(request,id):
     song = get_object_or_404(Song,pk=id)
@@ -16,3 +15,15 @@ def detail(request,id):
 
 def list(request):
     return render(request,'list.html')
+
+def sunny(request):
+    songs = Song.objects.filter(recommendation="sunny")
+    return render(request,'sunny.html',{'songs':songs})
+
+def christmas(request):
+    songs = Song.objects.filter(recommendation="christmas")
+    return render(request,'christmas.html',{'songs':songs})
+
+def midnight(request):
+    songs = Song.objects.filter(recommendation="midnight")
+    return render(request,'midnight.html',{'songs':songs})

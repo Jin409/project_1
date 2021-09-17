@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content%}
-<h4 ><a style="color:black; text-decoration:none;" href="{% url 'music:rain'%}">&#x2614; Is it rainy? 오늘은 비가 오나요?</a></h4>
+<h4 ><a style="color:black; text-decoration:none;" href="{% url 'music:rain'%}">&#x2614; 오늘은 비가 오나요?</a></h4>
+<br><br>
+<h4 ><a style="color:black; text-decoration:none;" href="{% url 'music:sunny'%}">&#x1F337; 봄이 성큼 다가왔나요? </a></h4>
+<br><br>
+<h4 ><a style="color:black; text-decoration:none;" href="{% url 'music:christmas'%}">&#x1F385; 크리스마스의 분위기를 느끼고 싶은 날인가요? </a></h4>
+<br><br>
+<h4 ><a style="color:black; text-decoration:none;" href="{% url 'music:midnight'%}">&#x1F303; 새벽의 공기 속에 있나요? </a></h4>
 {% endblock %}

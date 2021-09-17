@@ -7,6 +7,8 @@ urlpatterns=[
     path('rain/',views.rain,name="rain"),
     path('<int:id>',views.detail,name="detail"),
     path('list/',views.list,name="list"),
-
+    path('sunny/',views.sunny,name="sunny"),
+    path('christmas/',views.christmas,name="christmas"),
+    path('midnight/',views.midnight,name="midnight"),
     
 ]

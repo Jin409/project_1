@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<h3>&#x1F337;</h3>
+<br><br><br>
+
+{% for song in songs %}
+<h5>{{song.songtitle}} - {{song.songwriter}}</h5>
+
+<p style="font-size:13px;">{{song.summary}}<a href="{% url 'music:detail' song.id %}">...</a></p>
+{%endfor%}
+
+<h3></h3>
+{% endblock %}

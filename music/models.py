@@ -15,11 +15,15 @@ class Song(models.Model):
         #게시글 작성자
         writer = models.CharField(null=True,max_length=30)
         recommendation = models.CharField(null=True, max_length=200, choices = TYPE_CHOICES)
+        video = models.CharField(null=True,max_length=100000)
         
     
         def __str__(self):
-            return self.recommendation
+            return self.songtitle
         
         def summary(self):
             return self.lyrics[:300]
+
+        def srtvid(self):
+            return self.video[17:]
         
