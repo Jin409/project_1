@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Song
 
 def home(request):
@@ -27,3 +27,17 @@ def christmas(request):
 def midnight(request):
     songs = Song.objects.filter(recommendation="midnight")
     return render(request,'midnight.html',{'songs':songs})
+
+def create(request):
+    return render(request,'create.html')
+
+def new(request):
+    post = Song()
+    post.songtitle = request.POST['songtitle']
+    post.songwriter = request.POST['songwriter']
+    post.video = request.POST['video']
+    post.recommendation = request.POST['recommendation']
+    post.lyrics = request.POST['lyrics']
+    post.writer = request.POST['writer']
+    post.save()
+    return redirect('music:detail',post.id)

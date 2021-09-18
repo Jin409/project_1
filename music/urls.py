@@ -5,10 +5,12 @@ app_name = 'music'
 
 urlpatterns=[
     path('rain/',views.rain,name="rain"),
-    path('<int:id>',views.detail,name="detail"),
+    path('<int:id>/',views.detail,name="detail"),
     path('list/',views.list,name="list"),
     path('sunny/',views.sunny,name="sunny"),
     path('christmas/',views.christmas,name="christmas"),
     path('midnight/',views.midnight,name="midnight"),
+    path('create/',views.create,name="create"),
+    path('new/',views.new,name="new"),
     
 ]

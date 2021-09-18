@@ -1,3 +1,37 @@
 {% extends 'base.html' %}
 {% block content%}
+
+<h3 style="text-align:center;">추천하고 싶은 노래를 알려주세요 !</h3>
+{% comment %} song.id 부분 수정해야할지 보기 ! 일단 views.py 에서 받기는 하기 {% endcomment %}
+<form style="text-align:center;"action="{% url 'music:new' %}" method="post">
+{% csrf_token %}
+<p> 어떨 때 들으면 좋은 노래인가요? </p>
+<select name="recommendation">
+    <option value="none"selected>=== 선택 ===</option>
+    <option value="rain" >비가 오는 날에</option>
+    <option value="sunny">봄이 느껴지는 날에</option>
+    <option value="midnight">조용한 새벽 공기에</option>
+    <option value="christmas">크리스마스의 기분을 느끼고 싶은 날에</option>
+  </select>
+<br>
+<p>노래의 제목은 무엇인가요? </p> 
+<input name = "songtitle" type="text">
+<br>
+<p>노래를 부른 가수는 누구인가요? </p> 
+<input name = "songwriter" type="text">
+<br>
+<p>노래의 가사는 무엇인가요? </p> 
+<textarea name="lyrics" cols="50" rows="10"></textarea>
+<br>
+<p>당신의 닉네임을 알려주세요! </p> 
+<input name = "writer" type="text">
+<br>
+<p>노래를 들을 수 있는 유튜브 링크를 첨부해주세요. </p> 
+<input name = "video" type="text">
+<br><br>
+<button type="submit">추천하기!</button>
+
+
+</form>
+
 {% endblock %}
