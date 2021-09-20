@@ -12,5 +12,9 @@ urlpatterns=[
     path('midnight/',views.midnight,name="midnight"),
     path('create/',views.create,name="create"),
     path('new/',views.new,name="new"),
+    path('<int:id>/delete/',views.delete,name="delete"),
+  
+
+
     
 ]

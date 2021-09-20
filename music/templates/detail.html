@@ -13,5 +13,21 @@
 <p> 동영상을 재생할 수 없다고 뜨는 경우는, 해당 유튜브 링크에서 퍼가기를 비허용 한 것입니다.</p>
 <p> 감상을 원하신다면, YouTube에서 보기를 클릭하여 감상해주세요 &#x1F3B5;</p>
 
+<form action="{% url 'music:detail' song.id %}" method="POST">
+{%csrf_token%}
+<p>당신의 닉네임을 알려주세요</p> 
+<input name = "name" type="text">
+<br>
+<p>어떤 말을 남기고 싶은가요?</p> 
+<textarea name="text" cols="10" rows="5"></textarea>
+<br>
+<p>이 노래에 대해서 어떻게 생각하나요?</p> 
+<select name="opnion">
+    <option value="none"selected>=== 선택 ===</option>
+    <option value="good" >추천해요!</option>
+    <option value="bad">아쉬워요!</option>
+  </select>
+</form>
+<button><a href="{% url 'music:delete' song.id %}">삭제하기</a></button>
 {% endblock %}
 

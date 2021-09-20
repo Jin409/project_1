@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .models import Song
+from .models import Comment
 
 def home(request):
     return render(request,'home.html')
@@ -11,7 +12,16 @@ def rain(request):
 
 def detail(request,id):
     song = get_object_or_404(Song,pk=id)
-    return render(request,'detail.html',{'song':song})
+    comment = Comment.objects.filter(song=id)
+    if request.method=="POST":
+        new_comment = Comment()
+        new_comment.name = request.POST['name']
+        new_comment.text = request.POST['text']
+        new_comment.opinion = request.POST['opnion']
+        new_comment.save()
+        return redirect('music:detail',song.id)
+    else:
+        return render(request,'detail.html',{'song':song})
 
 def list(request):
     return render(request,'list.html')
@@ -41,3 +51,9 @@ def new(request):
     post.writer = request.POST['writer']
     post.save()
     return redirect('music:detail',post.id)
+
+def delete(request,id):
+    song = Song.objects.get(pk=id)
+    song.delete()
+    return redirect('home')
+
