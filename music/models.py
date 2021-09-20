@@ -33,6 +33,6 @@ CHOICE=(
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)
-    text = models.CharField(max_length=30)
+    text = models.TextField()
     opinion = models.CharField(max_length=30, choices = CHOICE)
     post = models.ForeignKey(Song,null=True,on_delete = models.CASCADE)
