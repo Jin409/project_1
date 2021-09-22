@@ -12,7 +12,8 @@ def rain(request):
 
 def detail(request,id):
     song = get_object_or_404(Song,pk=id)
-    comment = Comment.objects.filter(post_id = song.id)
+    comments = Comment.objects.filter(post=song)
+
     if request.method=="POST":
         new_comment = Comment()
         new_comment.post = song
@@ -20,8 +21,7 @@ def detail(request,id):
         new_comment.text = request.POST['text']
         new_comment.opinion = request.POST['opnion']
         new_comment.save()
-
-    return render(request,'detail.html',{'song':song,'comment':comment})
+    return render(request,'detail.html',{'song':song,'comments':comments})
 
 def list(request):
     return render(request,'list.html')

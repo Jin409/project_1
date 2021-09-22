@@ -9,6 +9,7 @@ TYPE_CHOICES = (
 )
 
 class Song(models.Model):
+    id = models.AutoField(primary_key=True, null=False)
     songtitle = models.CharField(max_length=30)
     songwriter = models.CharField(max_length=30)
     lyrics = models.TextField()
@@ -32,7 +33,12 @@ CHOICE=(
    
 
 class Comment(models.Model):
+    post = models.ForeignKey(Song,null=False,on_delete = models.CASCADE)
     name = models.CharField(max_length=30)
     text = models.TextField()
     opinion = models.CharField(max_length=30, choices = CHOICE)
-    post = models.ForeignKey(Song,null=True,on_delete = models.CASCADE)
+    def __str__(self):
+        if self.opinion=="good":
+            return "추천해요!"
+        else:
+            return "아쉬워요!"

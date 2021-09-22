@@ -12,31 +12,38 @@
 <iframe width="560" height="315" src="https://youtube.com/embed/{{song.srtvid}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p> 동영상을 재생할 수 없다고 뜨는 경우는, 해당 유튜브 링크에서 퍼가기를 비허용 한 것입니다.</p>
 <p> 감상을 원하신다면, YouTube에서 보기를 클릭하여 감상해주세요 &#x1F3B5;</p>
-
-<p>{{comment.name}}님의 댓글 </p>
 <br>
-<p>{{comment.text}}</p>
-<br>
-<p>{{comment.opinion}}</p>
+<hr>
+{% for comment in comments %}
 
+  <p style="color:grey;">{{comment.name}}님의 댓글</p>
+  <br>
+  <p style="color:black;">{{comment.text}}</p>
+<br>
+<p>{{comment}}</p>
+
+<hr>
+{% endfor %}
+<br>
 
 <form action="{% url 'music:detail' song.id %}" method="POST">
 {%csrf_token%}
-<p>당신의 닉네임을 알려주세요</p> 
+<p>닉네임을 알려주세요</p> 
 <input name = "name" type="text">
 <br>
 <p>어떤 말을 남기고 싶은가요?</p> 
-<textarea name="text" cols="10" rows="5"></textarea>
-<br>
+<textarea name="text" cols="80" rows="3"></textarea>
+<br><br><br>
 <p>이 노래에 대해서 어떻게 생각하나요?</p> 
+
 <select name="opnion">
     <option value="none"selected>=== 선택 ===</option>
     <option value="good" >추천해요!</option>
     <option value="bad">아쉬워요!</option>
   </select>
-<button type="submit">등록하기</button>
+<button type="submit">댓글 등록하기</button>
 </form>
-<br>
-<button><a href="{% url 'music:delete' song.id %}">삭제하기</a></button>
+<br><br><br>
+<button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button>
 {% endblock %}
 
