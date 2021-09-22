@@ -13,6 +13,7 @@ urlpatterns=[
     path('create/',views.create,name="create"),
     path('new/',views.new,name="new"),
     path('<int:id>/delete/',views.delete,name="delete"),
+    path('comment/<int:id>/delete/',views.comment_delete,name="comment_delete"),
   
 
 

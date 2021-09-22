@@ -57,3 +57,8 @@ def delete(request,id):
     song.delete()
     return redirect('home')
 
+def comment_delete(request,id):
+    comment = Comment.objects.get(pk=id)
+    comment.delete()
+    return redirect('music:detail',comment.post_id)
+

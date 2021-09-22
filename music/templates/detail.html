@@ -21,7 +21,7 @@
   <p style="color:black;">{{comment.text}}</p>
 <br>
 <p>{{comment}}</p>
-
+<button><a href="{% url 'music:comment_delete' comment.id %}">댓글 삭제하기</a></button>
 <hr>
 {% endfor %}
 <br>

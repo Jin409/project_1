@@ -32,3 +32,29 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+const bodySetColor = (color) =>{
+    document.querySelector('body').style.color = color;
+};
+
+
+const bodySetBackgroundColor = (color) =>{
+
+    document.querySelector('body').style.background.color = color;
+};
+
+const day_night_handler = (self) => {
+    if (self.value=="야간모드로 바꾸기"){
+        bodySetBackgroundColor("RGB(26,36,54)");
+        bodySetColor("white");
+        linkSetColor("powderblue");
+        self.value="주간모드로 바꾸기";
+    }
+    else{
+        bodySetBackgroundColor("white");
+    bodySetColor("black");
+    linkSetColor("blue");
+    self.value = "야간모드로 바꾸기";
+    }
+    
+}
