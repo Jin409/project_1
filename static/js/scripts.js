@@ -1,60 +1,67 @@
-/*!
-* Start Bootstrap - Resume v7.0.3 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
 
-window.addEventListener('DOMContentLoaded', event => {
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
-    if (sideNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#sideNav',
-            offset: 74,
-        });
+const linkSetColor = (color) => {
+    const alist = document.querySelectorAll('a');
+    for (let i=0; i < alist.length; i++) alist[i].style.color = color;
+  };
+  const headSetColor1 = (color) => {
+    const headlist1 = document.querySelectorAll('h1');
+    for (let i=0; i < headlist1.length; i++) headlist1[i].style.color = color;
+  };
+  const headSetColor2 = (color) => {
+    const headlist2 = document.querySelectorAll('h2');
+    for (let i=0; i < headlist2.length; i++) headlist2[i].style.color = color;
+  };
+
+  const headSetColor3 = (color) => {
+    const headlist = document.querySelectorAll('h3');
+    for (let i=0; i < headlist.length; i++) headlist[i].style.color = color;
+  };
+  const headSetColor4 = (color) => {
+    const headlist = document.querySelectorAll('h4');
+    for (let i=0; i < headlist.length; i++) headlist[i].style.color = color;
+  };
+
+const headSetColor5 = (color) => {
+    const headlist = document.querySelectorAll('h5');
+    for (let i=0; i < headlist.length; i++) headlist[i].style.color = color;
+  };
+
+
+  const textSetColor = (color) => {
+    const plist = document.querySelectorAll('p');
+    for (let i=0; i < plist.length; i++) plist[i].style.color = color;
+  };
+      const bodySetColor = (color) => {
+      document.querySelector(".new").style.color = color;
     };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
-});
-
-const bodySetColor = (color) =>{
-    document.querySelector('body').style.color = color;
-};
-
-
-const bodySetBackgroundColor = (color) =>{
-
-    document.querySelector('body').style.background.color = color;
-};
-
-const day_night_handler = (self) => {
-    if (self.value=="야간모드로 바꾸기"){
+    
+    // body 배경색 바꾸기
+    const bodySetBackgroundColor = (color) => {
+      document.querySelector(".new").style.backgroundColor = color;
+    };
+  
+    const day_night_handler = (self) => {
+      if (self.value == "야간모드로 바꾸기") {
         bodySetBackgroundColor("RGB(26,36,54)");
         bodySetColor("white");
         linkSetColor("powderblue");
-        self.value="주간모드로 바꾸기";
-    }
-    else{
+        textSetColor("powderblue");
+        headSetColor1("powerblue");
+        headSetColor2("powerblue");
+        headSetColor3("powerblue");
+        headSetColor4("powerblue");
+        headSetColor5("powerblue");
+        self.value = "주간모드로 바꾸기";
+      } else {
         bodySetBackgroundColor("white");
-    bodySetColor("black");
-    linkSetColor("blue");
-    self.value = "야간모드로 바꾸기";
+        bodySetColor("black");
+        linkSetColor("blue");textSetColor("black"); 
+        headSetColor1("black");
+        headSetColor2("powerblue");
+        headSetColor3("powerblue");
+        headSetColor4("powerblue");
+        headSetColor5("powerblue");
+        self.value = "야간모드로 바꾸기";
+      }
     }
-    
-}

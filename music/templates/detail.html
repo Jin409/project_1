@@ -2,10 +2,10 @@
 {% block content%}
 
 
-<h5> &#x1F3BC;{{song.writer}}님의 추천 </h5>
+<p> &#x1F3BC;{{song.writer}}님의 추천 </p>
 <br><br>
-<h3>&#x2714; {{song.songtitle}}</h3>
-<h5>{{song.songwriter}}</h5>
+<p style="font-size:30px;">&#x2714; {{song.songtitle}}</p>
+<p>{{song.songwriter}}</p>
 <p>{{song.lyrics}}</p>
 
 <p>&#x1F3B1; 지금 이 노래, 들어보기 <p>
@@ -16,10 +16,10 @@
 <hr>
 {% for comment in comments %}
 
-  <p style="color:grey;">{{comment.name}}님의 댓글</p>
+  <p>{{comment.name}}님의 댓글</p>
   <br>
-  <p style="color:black;">{{comment.text}}</p>
-<br>
+  {{comment.text}}
+<br><br><br>
 <p>{{comment}}</p>
 <button><a href="{% url 'music:comment_delete' comment.id %}">댓글 삭제하기</a></button>
 <hr>
@@ -44,6 +44,6 @@
 <button type="submit">댓글 등록하기</button>
 </form>
 <br><br><br>
-<button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button>
+{% comment %} <button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button> {% endcomment %}
 {% endblock %}
 
