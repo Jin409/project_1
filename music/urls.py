@@ -14,6 +14,7 @@ urlpatterns=[
     path('new/',views.new,name="new"),
     path('<int:id>/delete/',views.delete,name="delete"),
     path('comment/<int:id>/delete/',views.comment_delete,name="comment_delete"),
+    path('find/',views.find,name="find"),
   
 
 

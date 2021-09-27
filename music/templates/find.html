@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content%}
+<div >
+<p style="text-align:center;color:rgb(115, 174, 222);">{{find}}에 대한 검색 결과입니다. </p>
+<br>
+{% for song in songs%}
+
+    {% if song.srtsong == srtfind %}
+{{song.songtitle}} - {{song.songwriter}} 
+<p>{{song.summary}}<a href="{% url 'music:detail' song.id %}">...</a></p>
+
+{% endif %}
+
+{% endfor%}
+
+{% endblock %} 

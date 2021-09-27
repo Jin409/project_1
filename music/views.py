@@ -62,3 +62,11 @@ def comment_delete(request,id):
     comment.delete()
     return redirect('music:detail',comment.post_id)
 
+def find(request):
+    songs = Song.objects.all()
+    find = request.GET.get('find')
+    srtfind = find[0:2]
+    return render(request,'find.html',{'songs':songs,'find':find,'srtfind':srtfind})
+
+
+

@@ -23,8 +23,9 @@ class Song(models.Model):
         return self.lyrics[:300]
     def srtvid(self):
         return self.video[17:]
-
-
+    def srtsong(self):
+        return self.songtitle[0:2]
+   
         
 CHOICE=(
      ('good','추천해요!'),
