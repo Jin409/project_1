@@ -64,9 +64,11 @@ def comment_delete(request,id):
 
 def find(request):
     songs = Song.objects.all()
-    find = request.GET.get('find')
-    srtfind = find[0:2]
-    return render(request,'find.html',{'songs':songs,'find':find,'srtfind':srtfind})
-
+    q = request.GET.get('q','')
+    if q:
+        #q가 있다면 쿼리셋을 생성한다는 의미
+        songs = songs.filter(songtitle__icontains=q)
+        return render(request,'find.html',{'songs':songs,'q':q})
+    
 
 

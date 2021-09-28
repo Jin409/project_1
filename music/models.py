@@ -24,7 +24,7 @@ class Song(models.Model):
     def srtvid(self):
         return self.video[17:]
     def srtsong(self):
-        return self.songtitle[0:2]
+        return self.songtitle.lower()[0]
    
         
 CHOICE=(
