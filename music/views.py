@@ -42,15 +42,18 @@ def create(request):
     return render(request,'create.html')
 
 def new(request):
-    post = Song()
-    post.songtitle = request.POST['songtitle']
-    post.songwriter = request.POST['songwriter']
-    post.video = request.POST['video']
-    post.recommendation = request.POST['recommendation']
-    post.lyrics = request.POST['lyrics']
-    post.writer = request.POST['writer']
-    post.save()
-    return redirect('music:detail',post.id)
+    if 'songtitle' and 'songwriter' and 'video' and 'recommendation' and 'lyrics' and 'writer':
+        post = Song()
+        post.songtitle = request.POST['songtitle']
+        post.songwriter = request.POST['songwriter']
+        post.video = request.POST['video']
+        post.recommendation = request.POST['recommendation']
+        post.lyrics = request.POST['lyrics']
+        post.writer = request.POST['writer']
+        post.save()
+        return redirect('music:detail',post.id)
+    else:
+        return redirect('music:create')
 
 def delete(request,id):
     song = Song.objects.get(pk=id)
@@ -64,11 +67,15 @@ def comment_delete(request,id):
 
 def find(request):
     songs = Song.objects.all()
+
     q = request.GET.get('q','')
     if q:
         #q가 있다면 쿼리셋을 생성한다는 의미
         songs = songs.filter(songtitle__icontains=q)
         return render(request,'find.html',{'songs':songs,'q':q})
+    else:
+        k = "none"
+        return render(request,'find.html',{"songs":songs,'k':k})
     
 
 

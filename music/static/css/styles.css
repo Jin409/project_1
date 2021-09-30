@@ -41,7 +41,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 189, 93, 56;
+  --bs-primary-rgb: 105, 138, 121;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -7794,11 +7794,11 @@ textarea.form-control-lg {
 .text-opacity-100 {
   --bs-text-opacity: 1;
 }
-
+/* 
 .bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
-}
+  --bs-bg-opacity: 0;
+  background-color: rgba(33, 115, 73);
+} */
 
 .bg-secondary {
   --bs-bg-opacity: 1;
@@ -11320,6 +11320,7 @@ p.lead {
 #sideNav {
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color:#45474d;
 }
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;

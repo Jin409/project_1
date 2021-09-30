@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 {% block content%}
 <div >
+{% if not k %}
 <p style="text-align:center;color:rgb(115, 174, 222);">{{q}}에 대한 검색 결과입니다. </p>
-<br>
 {% for song in songs %}
 {{song.songtitle}} - {{song.songwriter}} 
 <p>{{song.summary}}<a href="{% url 'music:detail' song.id %}">...</a></p>
-
 {% endfor%}
+{% else%}
+<p style="text-align:center;">검색어를 입력하지 않으셨습니다. 다시 검색해주세요.</p>
+{% endif %}
+<br>
+
+
+
 
 {% endblock %} 

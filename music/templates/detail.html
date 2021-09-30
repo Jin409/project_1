@@ -4,6 +4,8 @@
 
 <p> &#x1F3BC;{{song.writer}}님의 추천 </p>
 <br><br>
+<a href="{% url 'music:list' %}"> 돌아가기 ↩︎</a>
+<br><br>
 <p style="font-size:30px;">&#x2714; {{song.songtitle}}</p>
 <p>{{song.songwriter}}</p>
 <p>{{song.lyrics}}</p>
@@ -44,6 +46,6 @@
 <button type="submit">댓글 등록하기</button>
 </form>
 <br><br><br>
-{% comment %} <button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button> {% endcomment %}
+<button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button> 
 {% endblock %}
 
