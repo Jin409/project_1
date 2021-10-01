@@ -5,6 +5,10 @@ const linkSetColor = (color) => {
     for (let i=0; i < alist.length; i++) alist[i].style.color = color;
   };
 
+const lyrics = (color) =>{
+  const lyricslist = document.querySelectorAll('#lyrics');
+    for (let i=0; i < lyricslist.length; i++) lyricslist[i].style.color = color;
+}
 
 const headSetColor3 = (color) => {
     const headlist = document.querySelectorAll('h3');
@@ -30,6 +34,7 @@ const bodySetColor = (color) => {
         headSetColor3("white");
         // headSetColor4("powerblue");
         // headSetColor5("powerblue");
+        lyrics("white");
         self.value = "주간모드로 바꾸기";
       }
       else {
@@ -42,6 +47,7 @@ const bodySetColor = (color) => {
         headSetColor3("black");
         // headSetColor4("powerblue");
         // headSetColor5("powerblue");
+        lyrics("");
         self.value = "야간모드로 바꾸기";
       }
     };

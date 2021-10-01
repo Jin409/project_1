@@ -18,21 +18,39 @@
 <hr>
 {% for comment in comments %}
 
-  <p>{{comment.name}}님의 댓글</p>
+  <p>{{comment.get_icon_display}} {{comment.name}}님의 댓글</p>
   <br>
   {{comment.text}}
 <br><br><br>
-<p>{{comment}}</p>
-<button><a href="{% url 'music:comment_delete' comment.id %}">댓글 삭제하기</a></button>
-<hr>
+
+{% if comment.opinion == 'bad'%}
+<p style="font-size:13px; font-style:oblique">- {{comment.name}} 님은 {{song.songtitle}}을(를) 추천하지 않았어요.</p>
+{% else %}
+<p style="font-size:13px; font-style:oblique">- {{comment.name}} 님은 {{song.songtitle}} 을(를) 추천했어요. </p>
+{% endif %}
+
+<a style="float:right; font-size:13px;" href="{% url 'music:comment_delete' comment.id %}">댓글 삭제하기</a>
+<br><hr>
 {% endfor %}
 <br>
 
 <form action="{% url 'music:detail' song.id %}" method="POST">
 {%csrf_token%}
+<p>당신을 표현하는 이모지는? </p>
+<select name="icon">
+    <option value="none"selected>=== 선택 ===</option>
+    <option value="cat" >🐈</option>
+    <option value="dog">🐶</option>
+    <option value="good" >👍🏻</option>
+    <option value="happy">😁</option>
+    <option value="heart" >💜</option>
+    <option value="cool">😎</option>
+
+  </select>
+<br><br>
 <p>닉네임을 알려주세요</p> 
 <input name = "name" type="text">
-<br>
+<br><br>
 <p>어떤 말을 남기고 싶은가요?</p> 
 <textarea name="text" cols="80" rows="3"></textarea>
 <br><br><br>
@@ -43,9 +61,10 @@
     <option value="good" >추천해요!</option>
     <option value="bad">아쉬워요!</option>
   </select>
-<button type="submit">댓글 등록하기</button>
+ 
+<button type="submit"> 댓글 등록하기 </button>
 </form>
 <br><br><br>
-<button><a href="{% url 'music:delete' song.id %}">글 삭제하기</a></button> 
+<a href="{% url 'music:delete' song.id %}">글 삭제하기</a>
 {% endblock %}
 

@@ -32,12 +32,20 @@ CHOICE=(
     ('bad','아쉬워요!')
 )
    
-
+EMOJI = (
+    ('cat','🐈'),
+    ('dog','🐶'),
+    ('good','👍🏻'),
+    ('happy','😁'),
+    ('heart','💜'),
+    ('cool','😎')
+)
 class Comment(models.Model):
     post = models.ForeignKey(Song,null=False,on_delete = models.CASCADE)
     name = models.CharField(max_length=30)
     text = models.TextField()
     opinion = models.CharField(max_length=30, choices = CHOICE)
+    icon = models.CharField(max_length=30,null=False, choices = EMOJI)
     def __str__(self):
         if self.opinion=="good":
             return "추천해요!"

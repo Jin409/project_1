@@ -6,12 +6,14 @@
 <br><br><br>
 
 {% for song in songs %}
-<p style="font-size:25px;">{{song.songtitle}} - {{song.songwriter}}</p>
-
-<p style="font-size:13px;">{{song.summary}}<a href="{% url 'music:detail' song.id %}">...</a></p>
+<a style="font-size:25px; text-decoration:none;" href="{% url 'music:detail' song.id %}">{{song.songtitle}} - {{song.songwriter}}</a>
+<br>
+<a id ="lyrics" style="text-decoration:none; font-size:13px;" href="{% url 'music:detail' song.id %}">{{song.summary}}...</a>
+<br><br>
 {%endfor%}
 
-<h3></h3>
+
+
 {% endblock %}
 
 {% comment %} {% url 'song:detail' song.id%} {% endcomment %}

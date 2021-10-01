@@ -14,13 +14,16 @@ def detail(request,id):
     song = get_object_or_404(Song,pk=id)
     comments = Comment.objects.filter(post=song)
 
+
     if request.method=="POST":
         new_comment = Comment()
         new_comment.post = song
         new_comment.name = request.POST['name']
         new_comment.text = request.POST['text']
         new_comment.opinion = request.POST['opnion']
+        new_comment.icon = request.POST['icon']
         new_comment.save()
+       
     return render(request,'detail.html',{'song':song,'comments':comments})
 
 def list(request):
